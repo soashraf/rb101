@@ -24,7 +24,7 @@ def operation_to_message(op)
   end
 end
 
-prompt"Welcome to Calculator! Enter your name:"
+prompt "Welcome to Calculator! Enter your name:"
 name = ''
 
 loop do
@@ -86,22 +86,22 @@ loop do
 
   prompt "#{operation_to_message(operator)} the two numbers..."
 
-  result = case operator
+  result =  case operator
             when '1'
-              result = number1.to_i + number2.to_i
+              number1.to_i + number2.to_i
             when '2'
-              result = number1.to_i - number2.to_i
+              number1.to_i - number2.to_i
             when '3'
-              result = number1.to_i * number2.to_i
+              number1.to_i * number2.to_i
             when '4'
-              result = number1.to_f / number2.to_f
-  end
+              number1.to_f / number2.to_f
+            end
 
   prompt "The answer is #{result}"
 
   prompt "Do you want to perform another calculation? (y to calculate again)"
   answer = gets.chomp
-  break unless answer.downcase.start_with?'y'
+  break unless answer.downcase.start_with? 'y'
 end
 
 prompt "thank yoy for using the calculator. Good bye"
