@@ -7,8 +7,16 @@ def prompt(message)
   puts "=> #{message}"
 end
 
-def valid_number?(num)
+def number?(num)
+  integer?(num) || float?(num)
+end
+
+def integer?(num)
   num.to_i.to_s == num
+end
+
+def float?(num)
+  num.to_f.to_s == num
 end
 
 def operation_to_message(op)
@@ -44,7 +52,7 @@ loop do
     prompt "Whats the first number?"
     number1 = gets.chomp
 
-    if valid_number?(number1)
+    if number?(number1)
       break
     else
       prompt("Hmm.. that doesnt look like a valid number")
@@ -56,7 +64,7 @@ loop do
     prompt "Whats the second number?"
     number2 = gets.chomp
 
-    if valid_number?(number2)
+    if number?(number2)
       break
     else
       prompt("Hmm.. that doesnt look like a valid number")
