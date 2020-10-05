@@ -11,16 +11,16 @@ loan_amount = ''
 apr = ''
 loan_duration = ''
 
-def integer?(num)
-  num.to_i.to_s == num
+def positive_integer?(num)
+  num.to_i.to_s == num && num.to_i > 0
 end
 
-def float?(num)
-  num.to_f.to_s == num
+def positive_float?(num)
+  num.to_f.to_s == num && num.to_f > 0.0
 end
 
-def number?(num)
-  integer?(num) || float?(num)
+def positive_number?(num)
+  positive_integer?(num) || positive_float?(num)
 end
 
 puts "Welcome to the mortgage calculator!!"
@@ -29,7 +29,7 @@ loop do
   loop do
     puts 'How much would you like to borrow?'
     num = gets.chomp
-    if integer?(num)
+    if positive_integer?(num)
       loan_amount = num.to_i
       break
     else
@@ -41,7 +41,7 @@ loop do
   loop do
     puts 'What is the APR for your loan?'
     num = gets.chomp
-    if number?(num)
+    if positive_number?(num)
       apr = num.to_f
       break
     else
@@ -52,7 +52,7 @@ loop do
   loop do
     puts 'How many months do you require the loan for?'
     num = gets.chomp
-    if integer?(num)
+    if positive_integer?(num)
       loan_duration = num.to_i
       break
     else
